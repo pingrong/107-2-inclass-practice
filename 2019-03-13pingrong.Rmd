@@ -30,3 +30,39 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 mnmnmnmnm
+
+```{r}
+a <- 1
+33 -> bc
+```
+
+```{r}
+ 777777 + a
+```
+
+```{r}
+-111 -> c
+
+11 + c
+```
+
+#when to use `
+
+```{r}
+`107` <- 10
+```
+
+# numeric number
+
+```{r}
+class(a)
+```
+
+```{r}
+a7 <- 1L
+```
+
+```{r}
+class(a7)
+```
+
