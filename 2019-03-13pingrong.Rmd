@@ -65,4 +65,19 @@ a7 <- 1L
 ```{r}
 class(a7)
 ```
+```{r}
+aVector <- c(1,2,3)
+```
+
+```{r}
+a7Vector <- c(1L,2L,3L)
+```
+
+```{r}
+class(aVector)
+```
+
+```{r}
+class(a7Vector)
+```
 
