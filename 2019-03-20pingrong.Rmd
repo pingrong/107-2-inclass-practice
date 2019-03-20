@@ -13,8 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 dialogue <- c("小明說：'明天不用上課。'",
                "小花說：'真的嗎？'")
-
-cat(dialogue, sep="\n")
 ```
 
 
@@ -22,4 +20,39 @@ cat(dialogue, sep="\n")
 aLogical <- c(T,TRUE,F,FALSE,FALSE)
 class(aLogical)
 ```
+
+
+```{r}
+# 加總向量內的所有元素值。
+sum(aLogical)
+```
+
+```{r}
+studentMajors <- factor(
+  c("經濟系", "經濟系", "法律系")
+)
+```
+
+```{r}
+class(studentMajors)
+```
+
+```{r}
+typeof(studentMajors)
+```
+
+```{r}
+studentMajors <- 
+  c("經濟系", "經濟系", "法律系")
+
+```
+
+```{r}
+class(studentMajors)
+```
+
+
+
+
+
 
