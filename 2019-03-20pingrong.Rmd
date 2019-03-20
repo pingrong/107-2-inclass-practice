@@ -51,8 +51,41 @@ studentMajors <-
 class(studentMajors)
 ```
 
+```{r}
+birthplaces <- factor(
+  c("台北市","台北市", "台北市","台中市","台中市")
+)
+```
+
+```{r}
+class(birthplaces)
+```
+
+```{r}
+typeof(birthplaces)
+```
+
+```{r}
+levels(birthplaces)
+```
+
+```{r}
+birthplaces
+```
 
 
+```{r}
+as.integer(birthplaces)
+```
 
 
+```{r}
+stringInteger <- c("1","2","-11")
+class(stringInteger) # 無法進行數值運算
+```
+
+```{r}
+trueInteger <- as.integer(stringInteger)
+class(trueInteger) # 可以進行數值運算
+```
 
