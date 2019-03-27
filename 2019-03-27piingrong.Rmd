@@ -26,3 +26,122 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+library(lubridate)
+```
+
+```{r}
+dtObject<-ymd_hms("1970-01-01 00:02:53") 
+```
+
+```{r}
+class(dtObject)
+```
+
+```{r}
+dtObject
+```
+
+
+```{r}
+Sys.timezone()
+```
+
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+```
+
+
+```{r}
+LisbonDateTime <- with_tz(twDateTime,tzone="Europe/Lisbon")
+```
+
+
+
+```{r}
+ymd("1970-01-01") %>% as.integer
+ymd("1970-01-02") %>% as.integer
+ymd("2019-03-11") %>% as.integer
+```
+
+```{r}
+dtObject<-mdy("March 3, 2019") 
+```
+
+
+```{r}
+a <- c(1, 5, -3)
+b <- c(0.5, 12, 2)
+aL <- c(1L, 5L, -3L)
+bL <- c(-2L, -4L, 8L)
+```
+
+
+
+```{r}
+a+bL
+class(a+bL)
+```
+
+
+```{r}
+aL+bL
+class(aL+bL)
+```
+
+```{r}
+a*bL
+class(a*bL)
+```
+
+```{r}
+aL*bL
+class(aL*bL)
+```
+
+
+```{r}
+a+2
+```
+
+```{r}
+c <- 4
+
+c+a
+```
+
+
+```{r}
+a^b
+a %% b
+```
+
+
+
+```{r}
+twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
+```
+
+
+```{r}
+twDateTime
+twDateTime+1
+```
+
+
+
+```{r}
+twDateTime <- ymd("2019-08-11", tz="Asia/Taipei")
+twDateTimekk <- ymd("2000-02-01", tz="Asia/Taipei")
+twDateTime-twDateTimekk
+twDateTime+twDateTimekk
+```
+
+
+
+
+
+
+
+
