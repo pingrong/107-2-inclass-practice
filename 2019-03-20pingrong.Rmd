@@ -153,6 +153,26 @@ studentID<-c(
 str_sub(studentID,2,4)
 str_sub(studentID,5,6)
 ```
+```{r}
+year <- c("101","105","109")
+month <- c("3","1","9")
+day <- c("11","5","7")
+char1 <- c("年","年","年")
+char2 <- c("月","月","月")
+char3 <- c("日","日","日")
+year
+char1
+month
+char2
+day 
+char3
+str_c(year,char1,month,char2,day,char3)
+str_c(year,c("年"),month,c("月"),day,c("日"))
+str_c(year,"年",month,"月",day,"日")
+str_c(year,month,day, sep="-")
+```
+
+
 
 
 
