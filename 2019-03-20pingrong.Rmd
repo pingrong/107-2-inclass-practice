@@ -136,3 +136,32 @@ twDateTime <- ymd_hms("2019-03-18 14:04:00", tz="Asia/Taipei")
 LisbonDateTime <- with_tz(twDateTime,tzone="Europe/Lisbon")
 ```
 
+```{r}
+library(stringr)
+```
+
+
+```{r}
+course <- c("個體經濟學","投資學","總體經濟學")
+str_subset(course,"經濟學")
+str_detect(course,"經濟學")
+```
+
+```{r}
+studentID<-c(
+  '410177115','410176080','410174233','410177011','410182045','410176014')
+str_sub(studentID,2,4)
+str_sub(studentID,5,6)
+```
+
+
+
+
+
+
+
+
+
+
+
+
