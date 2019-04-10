@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+
+
 ```{r}
 x3 <- c("小明","小花")
 y3 <- c("小明","小華")
