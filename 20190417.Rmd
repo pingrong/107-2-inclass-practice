@@ -131,7 +131,19 @@ commitCheck <- content(GET(commitCheckStatement))
 
 ```{r}
 commitCheck[[4]][["commit"]][["committer"]][["date"]]->commitDate
+commitDate
+
+ymd_hms(commitDate)->commitDate
+with_tz(commitDate)
 ```
+
+
+
+
+
+
+
+
 
 ```{r}
 library(readr)
