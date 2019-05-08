@@ -139,14 +139,30 @@ str_replace_all(twDates,"(民國)|(月)","")
 ### 5.2 取出年份
 取出民國年的並加上1911年轉成西元年，將此年份存在答案物件westYears裡（class為integer）。(hint: `str_split()`可分割字串,再使用第3題取出你要的部份)
 ```{r ans52}
-# westYears
+twDates
+str_sub(twDates,3,5) -> yearCharacter
+yearCharacter
+
+as.integer(yearCharacter)+1911 -> westYears
+westYears# westYears
 ```
 
 ### 5.3 西元年月日
 將twDates民國年月轉成date class的西元年月日，原始資料沒有日，請設定成每月1日。例如："民國100年5月"會轉成2011-05-01的date class日期。答案請存westDates答案物件。
 
 ```{r ans53}
-# westDates
+twDates2
+str_split(twDates2,"年") -> datesSplitList
+datesSplitList
+
+map(datesSplitList,~.[[2]]) -> monthList
+monthList
+
+unlist(monthList) -> monthVector
+monthVector
+
+str_c(as.character(westYears),monthVector,"01",sep = "-") -> westDates
+westDates# westDates
 ```
 
 
