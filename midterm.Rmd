@@ -77,6 +77,10 @@ load("submitTime.Rda")
 ```
 請將它改成以America/New_York時區顯示的「character class」文字字串，並存在答案物件nyTime。答案物件請寫在最後一行。（注意答案物件class必修為character）
 ```{r ans3}
+mdy_hms(submitTime)-> submitTime1
+with_tz(submitTime1,tzone = "America/New_York") -> nyTime
+as.character(nyTime) -> nyTime
+nyTime
 # nyTime
 ```
 
@@ -104,6 +108,7 @@ data3 <- list(
 
 請選出成績大於等於60的資料並存在passData這個帶有「成績」及「學分數」的list物件。此題答案物件為passData。
 ```{r ans4}
+
 # passData
 ```
 
@@ -120,8 +125,16 @@ str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates
 ### 5.1 去除字元
 請將twDates中的"民國"及"月"都去除，並存在twDates2答案物件，如："民國099年2月"會變成"099年2"。
 ```{r ans51}
-# twDates2
+str_replace(twDates,"民國","") -> x1
+x1
+str_replace(x1,"月","") -> twDates2
+twDates2# twDates2
 ```
+
+```{r}
+str_replace_all(twDates,"(民國)|(月)","")
+```
+
 
 ### 5.2 取出年份
 取出民國年的並加上1911年轉成西元年，將此年份存在答案物件westYears裡（class為integer）。(hint: `str_split()`可分割字串,再使用第3題取出你要的部份)
