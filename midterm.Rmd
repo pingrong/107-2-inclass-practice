@@ -108,8 +108,9 @@ data3 <- list(
 
 請選出成績大於等於60的資料並存在passData這個帶有「成績」及「學分數」的list物件。此題答案物件為passData。
 ```{r ans4}
-
-# passData
+passLogic <- data3$成績>=60
+map(data3,~.[passLogic]) -> passData
+passData# passData
 ```
 
 
@@ -202,7 +203,15 @@ sampledTranscriptData裡每個元素底下的值都是一位同學在一門課�
 ### 7.1 子樣本與當人比例
 取出科目名稱為「科目204」的學期成績，計算該科的當人比例（子樣本中成績不及格的比例）將此值存在答案物件failRate裡（為numeric/double class）。
 ```{r ans71}
-# failRate
+(sampledTranscriptData$科目名稱 == "科目204") -> logicChosenSubject
+length(logicChosenSubject)
+sum(logicChosenSubject)
+(sampledTranscriptData$科目名稱 == "科目204" & 
+    sampledTranscriptData$學期成績 < 60) -> logicChosenSubjectAndFail
+length(logicChosenSubjectAndFail)
+sum(logicChosenSubjectAndFail)
+sum(logicChosenSubjectAndFail)/sum(logicChosenSubject) -> failRate
+failRate# failRate
 ```
 
 
