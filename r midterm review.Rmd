@@ -82,6 +82,16 @@ str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates
 ### twDates
 ```
 
+5.1 去除字元
+請將twDates中的“民國”及“月”都去除，並存在twDates2答案物件，如：“民國099年2月”會變成“099年2”。
+```{r}
+str_replace(twDates,"民國","") -> twDates2
+str_replace(twDates2,"月","") -> twDates2  
+twDates2
+```
+```{r}
+str_replace_all(twDates,"(民國)|(月)","")
+```
 
 
 
