@@ -28,6 +28,11 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 
+```{r}
+library(lubridate); library(stringr); library(dplyr); library(readr); library(purrr)
+```
+
+
 1
 ```{r}
 x <- as.character(round(runif(10)*100),10)
