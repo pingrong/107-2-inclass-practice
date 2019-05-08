@@ -26,3 +26,31 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+```{r}
+x <- as.character(round(runif(10)*100),10)
+x
+```
+
+請產生一個logical class答案物件名為logicBig，其中元素值為TRUE若x對應值大於50（不包含50），反之為FALSE。答案物件請寫在最後一行。
+```{r}
+logicBig <- (as.integer(x) > 50)
+logicBig
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
