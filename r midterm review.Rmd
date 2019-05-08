@@ -28,7 +28,7 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 
-
+1
 ```{r}
 x <- as.character(round(runif(10)*100),10)
 x
@@ -38,6 +38,43 @@ x
 ```{r}
 logicBig <- (as.integer(x) > 50)
 logicBig
+```
+
+4
+有時我們會需要對list裡的每個元素取出相同位置的值，例如以下的a物件，其中對於「學號」「成績」元素的值，相同位置來自相同學生。如果我們想對每個元素取相同位置的值出來，我們可以用purrr套件裡的map()進行操作，方式為map(a,~.ObjectExtraction)
+```{r}
+a <- list(
+  學號=c("a23","a22","a41"),
+  成績=c(88,76,82)
+)
+map(a,~.[[2]]) ### 取出每個元素第二位
+map(a,~.[c(1,3)]) ### 取出每個元素第一及第三位
+map(a,~.[c(T,F,T)]) ### 取出每個元素第一及第三位
+
+```
+請執行以下程式隨機產生一位學生在15門課的成績及學分數。
+```{r}
+randomGrades <- sample(40:80,15,replace = T)
+randomCredits <- sample(0:3,15,replace=T)
+data3 <- list(
+  成績=randomGrades,
+  學分數=randomCredits
+)
+```
+請選出成績大於等於60的資料並存在passData這個帶有「成績」及「學分數」的list物件。此題答案物件為passData。
+```{r}
+passLogic <- data3$成績>=60
+map(data3,~.[passLogic]) -> passData
+passData
+```
+
+5
+執行以下程式產生台灣民國年月字串物件twDates。
+```{r}
+sample(99:103,15,replace = T)-> yy
+sample(1:12,replace=T)-> mm
+str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates
+### twDates
 ```
 
 
