@@ -179,6 +179,8 @@ names(invoiceList) <-
 ### 6.1 改元素名稱
 請將元素名稱「訂單時間(以訂單時區顯示)」改成「訂單時區之下單時間」。答案最後一行請寫invoiceList答案物件。
 ```{r ans61}
+names(invoiceList)[[2]] <- "訂單時區之下單時間"
+invoiceList
 # invoiceList
 ```
 
@@ -186,6 +188,17 @@ names(invoiceList) <-
 請將每個「訂單時區之下單時間」依其「訂單時區」轉成UTC時間date time class（即POSIXct class）後，存在「UTC時間」對應的位置裡。最後一行請打本題答案物件invoiceList。
 
 ```{r ans62}
+(invoiceList$訂單時區=="America/New_York") -> nyLogical
+(invoiceList$訂單時區=="Asia/Taipei") -> tpLogical
+
+invoiceList$UTC時間[nyLogical] <-
+  with_tz(ymd_hms(invoiceList$`訂單時區之下單時間`[nyLogical],
+          tz="America/New_York"),tzone="UTC")
+invoiceList$UTC時間[tpLogical] <-
+  with_tz(ymd_hms(invoiceList$`訂單時區之下單時間`[tpLogical],
+          tz="Asia/Taipei"),tzone="UTC")
+
+invoiceList 
 # invoiceList 
 ```
 
@@ -221,25 +234,58 @@ failRate# failRate
 
 「學屆」元素值代表的是每一位同學的入學學年，可由學號的第2到4位字元產生，「系碼」即學號的第5到6位字元；如410073298即為100學年入學，系碼73。另本題的答案物件為sampledTranscriptData。（使用`sampledTranscriptData$學屆 <- `及`sampledTranscriptData$系碼 <-`，將個別由學號取出之值放在`<-`右側即可在sampleTranscriptData新增這兩個元素。）
 ```{r ans72}
-# sampledTranscriptData
+sampledTranscriptData$學屆<-str_sub(sampledTranscriptData[["學號"]],2,4)
+sampledTranscriptData$系碼<-str_sub(sampledTranscriptData[["學號"]],5,6)
+
+sampledTranscriptData# sampledTranscriptData
+
 ```
 
 ### 7.3 產生學系 str_replace_all
 請在sampledTranscriptData新增一個「學系」變數，存在`sampledTranscriptData$學系`答案物件裡，它是「系級」元素值去除數字1,2,3,4的結果。例如：系級為"經濟學系2", 學系值即為"經濟學系"。（hint: 可透過`str_replace()`或`str_replace_all()`把字串中的數字去除。）
 
+```{r}
+rr<-str_replace_all(sampledTranscriptData[["系級"]],"1","")
+rr<-str_replace_all(rr,"2","")
+rr<-str_replace_all(rr,"3","")
+sampledTranscriptData$學系<-str_replace_all(rr,"4","")
+sampledTranscriptData$學系# sampledTranscriptData$學系 
+```
+
+
 ```{r ans73}
+sampledTranscriptData$學系 <- str_replace(sampledTranscriptData$系級,"1","")
+sampledTranscriptData$學系 <- str_replace(sampledTranscriptData$學系,"2","")
+sampledTranscriptData$學系 <- str_replace(sampledTranscriptData$學系,"3","")
+sampledTranscriptData$學系 <- str_replace(sampledTranscriptData$學系,"4","")
+
+sampledTranscriptData$學系 
 # sampledTranscriptData$學系 
 ```
+
 
 ### 7.4 轉系生
 學號是一入學就決定，不管後來有沒有轉系。 請找出外系轉入經濟系的學生學號，並存成changeMajorStudent答案物件。(由於資料一筆為一科成績，所以學號會重覆出現，要存入答案物件前請用`unique()`去除重覆學號)
 ```{r ans74}
+(sampledTranscriptData$系碼!="73" & 
+   sampledTranscriptData$學系=="經濟學系") -> logiCheck
+sampledTranscriptData$學號[logiCheck] %>% unique() -> changeMajorStudent
+
+changeMajorStudent
 # changeMajorStudent
 ```
 
 ### 7.5 學期平均成績
 請計算學號"410073409b"在101學年第1學期的平均成績（即該學期每科成績乘每科學分後加總，再除以總學分數），答案存在答案物件studentGPA(為numeric class)。
 ```{r ans75}
+(sampledTranscriptData$學號 == "410073409b" &
+  sampledTranscriptData$學年==101 &
+  sampledTranscriptData$學期==1) -> logiSelect
+  
+sum(sampledTranscriptData$學分數[logiSelect]*
+  sampledTranscriptData$學期成績[logiSelect])/sum(sampledTranscriptData$學分數[logiSelect]) -> studentGPA
+
+studentGPA
 # studentGPA
 ```
 
