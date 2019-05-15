@@ -84,9 +84,17 @@ sum(transcriptDataFinal$學期成績[logiChosenStudent]*
   sum(transcriptDataFinal$學分數[logiChosenStudent]) -> GPA
 ```
 
+```{r}
+
+```
+
 
 ```{r}
-ax<- function(){a+x}
+cc <- function(x,.alpha){
+  ccvalue<- x+.alpha # 程序產生output值
+  return(ccvalue) # 傳回output值
+}
+cc(4,17)
 ```
 
 
