@@ -26,3 +26,41 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+b <- list(
+  元素1=1,
+  元素2="Hello",
+  元素3=TRUE
+)
+```
+
+```{r}
+b[[3]]<-FALSE
+b[[5]]<-"7"
+b
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
