@@ -51,13 +51,29 @@ b <- list(
   元素3=TRUE
 )
 b$元素2<-"Hi"
-b$新成員<- c(1,2,3)
+b$新成員<- c(2,5,1)
 b
 
 ```
 
 
+```{r}
+library(readr)
+exData3 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/exData3.csv",
+                    col_types = cols(
+                      匯率 = col_number(),
+                      期間 = col_character()))
+```
 
+```{r}
+library(lubridate)
+exData3$期間<-ymd(exData3$期間)
+class(exData3$期間)
+exData3[["isAsiaCrisis"]]<-exData3$期間>=ymd("1997-06-01")&exData3$期間<=ymd("1998-12-01")
+exData3$期間[["isAsiaCrisis"]]->
+exData3
+
+```
 
 
 
