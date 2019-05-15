@@ -70,11 +70,13 @@ library(lubridate)
 exData3$期間<-ymd(exData3$期間)
 class(exData3$期間)
 exData3[["isAsiaCrisis"]]<-exData3$期間>=ymd("1997-06-01")&exData3$期間<=ymd("1998-12-01")
-exData3$期間[["isAsiaCrisis"]]->
 exData3
 
 ```
 
+```{r}
+
+```
 
 
 
