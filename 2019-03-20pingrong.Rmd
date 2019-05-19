@@ -38,13 +38,15 @@ typeof(studentMajors)
 ```
 
 ```{r}
-studentMajors <- 
-  c("經濟系", "經濟系", "法律系")
+studentMajors <- factor(c("經濟系", "經濟系", "法律系"))
+ 
 
 ```
 
 ```{r}
 class(studentMajors)
+typeof(studentMajors)
+levels(studentMajors)
 ```
 
 ```{r}
@@ -168,7 +170,7 @@ str_c(year,month,day, sep="-")
 ```{r}
 chineseDate <- c("3月11日","4月5日","2月7日")
 dates <- c("3-11", "4-5",  "2-7")
-str_split(dates,"-")
+str_split(dates,"-","月")
 ```
 
 ```{r}
