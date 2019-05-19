@@ -145,6 +145,7 @@ as.data.frame(df_oneShow, stringsAsFactors = FALSE)
 df_oneShow# df_oneShow
 ```
 
+
 ### 2.3 活動創立函數
 在前一題中，若我們把程序中的`exhibitionList[[1]]`想成input，而`df_oneShow`是我們要的output，則可以產生function class的答案物件dataframe_show_info:
 ```
