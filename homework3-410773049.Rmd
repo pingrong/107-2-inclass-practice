@@ -159,7 +159,21 @@ return(df_oneShow)
 `dataframe_show_info()`可用來查詢任何一個展覽訊息，如`dataframe_show_info(exhibitionList[[5]])`會output一個代表第5個展覽的data frame格式訊息。本題最後一行請打`dataframe_show_info`不要有小刮號`()`。
 
 ```{r ans23}
-#  dataframe_show_info
+dataframe_show_info <- function(exhibitionInput){
+  
+exhibitionInput[["title"]]
+exhibitionInput[["showInfo"]][[1]][["time"]]
+exhibitionInput[["showInfo"]][[1]][["location"]]
+exhibitionInput[["showInfo"]][[1]][["locationName"]]
+exhibitionInput[["showInfo"]][[1]][["price"]]
+exhibitionInput[["showInfo"]][[1]][["endTime"]]
+exhibitionInput[["sourceWebName"]]
+
+
+return(df_oneShow)
+}
+
+dataframe_show_info
 ```
 
 ### 2.4 活動資訊來源種類
