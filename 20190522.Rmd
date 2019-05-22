@@ -93,14 +93,26 @@ mm<-str_extract(twDates,"[:digit:]+(?=月)")
 yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
 ```
 ```{r}
-date_convert_twYM <- function(){
-  
-  return()
-}
+date_convert_twYM <- function(x){
+  yyyy <- as.integer(str_extract(x,"(?<=(民國))[:digit:]+"))+1911
+  mm <- str_extract(x,"[:digit:]+(?=月)")
+  yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+  return(yyyymmdd)
+
 ```
 
 
+```{r}
+utility_cobb_douglass2 <- function(x,y,.alpha=0.5,.beta=0.5){
+  utilValue <- x^.alpha*y^.beta
+  return(utilValue)
+}
+```
 
+```{r}
+utility_cobb_douglass2(1,2) # 使用預設值
+utility_cobb_douglass2(1,2,0.5,0.8) # 自定參數值
+```
 
 
 
