@@ -55,3 +55,39 @@ invoiceList$UTC時間[tpLogical] <- with_tz(tpDateTime,tz="UTC")
 invoiceList
 ```
 
+
+```{r}
+ymd_hms_tzChange <- function(ny){
+ny <- ymd_hms("1973-02-21 12:05:22",tz="America/New_York")
+tp <- with_tz(ny,tz="Asia/Taipei")
+  return(tp)
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
