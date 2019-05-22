@@ -64,7 +64,20 @@ tp <- with_tz(ny,tz="Asia/Taipei")
 }
 ```
 
+```{r}
+timezonechange<-ymd_hms("1973-02-21 12:05:22",tzone="America/New_York")
+timezonechange1<-with_tz(timezonechange,tzone="Asia/Taipei")
+timezonechange1
+```
 
+```{r}
+ymd_hms_tzChange <- function(input,fromTzone,toTzone){
+  time1 <- ymd_hms(input,tz=fromTzone)
+  answer <- with_tz(time1,tzone = toTzone)
+  return(answer)
+}
+ymd_hms_tzChange("1973-02-21 12:05:22","America/New_York","Asia/Taipei")
+```
 
 
 
