@@ -80,7 +80,7 @@ finStatement$`營業利益（損失）`>0 & finStatement$`基本每股盈餘（�
 
 finStatement$`營業利益（損失）`<0 & finStatement$`基本每股盈餘（元）`>0 ->comdition2
 
-finStatement$公司名稱[[option1 | option2]] ->only1LossCompanies
+finStatement$公司名稱[[comdition1 | comdition2]] ->only1LossCompanies
 
 as.character(only1LossCompanies)
 
@@ -181,20 +181,23 @@ dataframe_show_info
 purrr套件裡的`map_dfr(物件,data_frame產生函數名稱)`可以把`物件`的每一個元素，丟進`data_frame產生函數`，得到每一個對應的data frame output後，以逐列（by row）堆疊方式合成所有輸出的data frame。以本題的例子，執行以下程式可以得到所有活動的data frame清單df_allShows。(你必需完成前一題，以下程序才會有作用。)
 ```{r}
 library(purrr)
-map_dfr(exhibitionList,dataframe_show_info) -> df_allShows
+map_dfr(exhibitionLis,dataframe_show_info) -> df_allShows
+df_allShows
 ```
 
 請將df_allShows的sourceWebName元素轉成factor class，最後一行寫`levels(df_allShows$sourceWebName)`顯示活動資訊來源所有類別。
 
 ```{r ans24}
-# levels(df_allShows$sourceWebName)
+
+levels(df_allShows$sourceWebName)# levels(df_allShows$sourceWebName)
 ```
 
 ### 2.5 計算單一來源
 來自"全國藝文活動資訊系統"的展覽有幾筆，答案存在numeric class物件totalCount。(hint: 將logical vector裡的TRUE加總)
 
 ```{r ans25}
-# totalCount
+
+totalCount# totalCount
 ```
 
 
