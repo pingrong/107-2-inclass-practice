@@ -102,6 +102,7 @@ df_allCommits# df_allCommits
 只有當author與committer是同一人時，該commit才會是該使用者對此repo的貢獻（若不同，可能是其中一個完成，另一人只是引入他的成就）。在df_allCommits新增一個logical class變數稱為samePerson，其值為TRUE當author與commiter同一人。(最後一行請打df_allCommits$samePerson)
 
 ```{r ans105}
+df_allCommits$samePerson<-oneCommitRecord[["commit"]][["author"]][["name"]]==oneCommitRecord[["commit"]][["committer"]][["name"]]
 df_allCommits$samePerson# df_allCommits$samePerson
 ```
 
