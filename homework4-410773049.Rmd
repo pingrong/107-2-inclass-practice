@@ -110,7 +110,7 @@ df_allCommits$samePerson# df_allCommits$samePerson
 請取出df_allCommits中為同一人貢獻的子樣本，存在答案物件df_validCommits。
 
 ```{r ans106}
-
+df_validCommits<-df_allCommits[samePerson]
 df_validCommits# df_validCommits
 ```
 
