@@ -84,7 +84,11 @@ df_commit# df_commit
 ### 1.3 寫成函數
 請創造一個答案函數物件叫commit_df_fun, 其input為oneCommitRecord, output為df_commit。最後一行請寫commit_df_fun, 不要加`()`
 ```{r ans103}
-# commit_df_fun
+commit_df_fun<-function(oneCommitRecord){
+  df_commit<-
+  return(df_commit)
+}
+commit_df_fun# commit_df_fun
 ```
 
 ### 1.4 產生完整data frame
