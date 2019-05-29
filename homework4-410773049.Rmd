@@ -110,9 +110,9 @@ df_allCommits# df_allCommits
 只有當author與committer是同一人時，該commit才會是該使用者對此repo的貢獻（若不同，可能是其中一個完成，另一人只是引入他的成就）。在df_allCommits新增一個logical class變數稱為samePerson，其值為TRUE當author與commiter同一人。(最後一行請打df_allCommits$samePerson)
 
 ```{r ans105}
-samePerson<-oneCommitRecord[["commit"]][["author"]][["name"]]==oneCommitRecord[["commit"]][["committer"]][["name"]]
+df_allCommits$samePerson<-df_allCommits$author==df_allCommits$committer
 
-df_allCommits[samePerson]# df_allCommits$samePerson
+df_allCommits$samePerson# df_allCommits$samePerson
 ```
 
 
@@ -127,7 +127,7 @@ df_validCommits# df_validCommits
 ### 1.7 日期
 df_validCommits中的commitDate為UTC時區表示的時間"字串"，請將它轉成以"Asia/Taipei"時區顯示的POSIXct class資料，最後一行請打答案物件df_validCommits$commitDate。
 ```{r ans107}
-df_validCommits$commitDate<-ymd_hms(oneCommitRecord[["commit"]][["committer"]][["date"]])
+df_validCommits$commitDate<-ymd_hms()
 df_validCommits$commitDate<-with_tz(df_validCommits$commitDate,tzone="Asia/Taipei")
 df_validCommits$commitDate# df_validCommits$commitDate
 ```
