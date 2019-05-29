@@ -185,6 +185,16 @@ return(list(供給量=Qs,需求量=Qd,超額供給量=Qs-Qd))
 
 
 
+```{r}
+gpa_fun <- function(studentID){
+  
+  if(studentID==NULL) {
+    message("查無此學號")
+  } else {
+    return(studentID)
+  }
+
+```
 
 
 
