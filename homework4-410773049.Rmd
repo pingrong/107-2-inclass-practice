@@ -71,13 +71,14 @@ oneCommitRecord# oneCommitRecord
 所有變數值均為character class且stringsAsFactors=F。
 
 ```{r ans102}
-onelist<-list(
+df_commit<-data.frame(
   author=oneCommitRecord[["commit"]][["author"]][["name"]],
   commiter=oneCommitRecord[["commit"]][["committer"]][["name"]],
   commitDate=oneCommitRecord[["commit"]][["committer"]][["date"]],
-  sha=oneCommitRecord[["sha"]]
+  sha=oneCommitRecord[["sha"]],
+  stringsAsFactors = FALSE
 )
-df_commit<-as.data.frame(onelist, stringsAsFactors = FALSE)
+
 df_commit# df_commit
 ```
 
@@ -85,7 +86,13 @@ df_commit# df_commit
 請創造一個答案函數物件叫commit_df_fun, 其input為oneCommitRecord, output為df_commit。最後一行請寫commit_df_fun, 不要加`()`
 ```{r ans103}
 commit_df_fun<-function(oneCommitRecord){
-  df_commit<-as.data.frame(onelist, stringsAsFactors = FALSE)
+  df_commit<-data.frame(
+  author=oneCommitRecord[["commit"]][["author"]][["name"]],
+  commiter=oneCommitRecord[["commit"]][["committer"]][["name"]],
+  commitDate=oneCommitRecord[["commit"]][["committer"]][["date"]],
+  sha=oneCommitRecord[["sha"]],
+  stringsAsFactors = FALSE
+  )
   return(df_commit)
 }
 commit_df_fun# commit_df_fun
@@ -94,7 +101,8 @@ commit_df_fun# commit_df_fun
 ### 1.4 產生完整data frame
 使用作業3的2.4小題所提及的purrr套件之`map_dfr()`函數，將commitHistory的所有30筆資料轉成與1.2小題df_commit一樣欄位名稱但有30筆資料的data fram答案物件df_allCommits, 最後一行請寫df_allCommits
 ```{r ans104}
-df_allCommits<-map_dfr(commitHistory)
+library(purrr)
+df_allCommits<-map_dfr(commitHistory,commit_df_fun)
 df_allCommits# df_allCommits
 ```
 
