@@ -187,19 +187,47 @@ return(list(供給量=Qs,需求量=Qd,超額供給量=Qs-Qd))
 
 ```{r}
 gpa_fun <- function(studentID){
-  
-  if(studentID==NULL) {
-    message("查無此學號")
-  } else {
-    return(studentID)
-  }
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
 
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+
+  sum(subSample$學期成績*subSample$學分數)/
+  sum(subSample$學分數) -> GPA
+  if(studentID %in% transcriptDataFinal$學號){
+  return(GPA)
+  }else{
+      message("查無此學號")
+    }
+}
+```
+
+```{r}
+gpa_fun <- function(studentID){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+
+  sum(subSample$學期成績*subSample$學分數)/
+  sum(subSample$學分數) -> GPA
+  if(studentID==NULL){ message("查無此學號")}
+  else{return(GPA)}
+}
 ```
 
 
-
-
-
+```{r}
+gpa_fun <- function(studentID){
+  if(studentID %in% transcriptDataFinal$學號){
+  transcriptDataFinal$學號==studentID -> logiChosenStudent
+  subSample <- transcriptDataFinal[logiChosenStudent,]
+  sum(subSample$學期成績*subSample$學分數)/sum(subSample$學分數) -> GPA
+  return(GPA)
+  }
+  else{
+  message("查無此學號")
+  }
+}
+```
 
 
 
