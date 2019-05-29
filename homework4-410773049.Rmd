@@ -109,9 +109,14 @@ df_allCommits# df_allCommits
 ### 1.5 留下個人完成的commit
 只有當author與committer是同一人時，該commit才會是該使用者對此repo的貢獻（若不同，可能是其中一個完成，另一人只是引入他的成就）。在df_allCommits新增一個logical class變數稱為samePerson，其值為TRUE當author與commiter同一人。(最後一行請打df_allCommits$samePerson)
 
-```{r ans105}
-df_allCommits$samePerson<-df_allCommits$author==df_allCommits$committer
+```{r}
+as.character(df_allCommits$author)
+```
 
+```{r ans105}
+as.characterlCommits$author)
+as.character(df_allCommits$committer)
+df_allCommits$samePerson<-df_allCommits$author==df_allCommits$committer
 df_allCommits$samePerson# df_allCommits$samePerson
 ```
 
