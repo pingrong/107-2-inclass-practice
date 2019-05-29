@@ -135,13 +135,15 @@ df_validCommits$commitDate# df_validCommits$commitDate
 ### 1.8 hh變數
 請由`df_validCommits$commitDate`中取出台灣時區的小時數（0-23間）存在`df_validCommits$hh`中，其class為integer，最後一行請打df_validCommits$hh。
 ```{r ans108}
-# df_validCommits$hh
+
+df_validCommits$hh# df_validCommits$hh
 ```
 
 ### 1.9 date變數
 請由`df_validCommits$commitDate`中取出它的YYYY-MM-DD日期存在`df_validCommits$date`中，其class為Date，最後一行請打df_validCommits$date。
 
 ```{r ans109}
+
 df_validCommits$date# df_validCommits$date
 ```
 
