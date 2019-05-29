@@ -230,6 +230,24 @@ gpa_fun <- function(studentID){
 ```
 
 
+```{r}
+fizzbuzz <- function(x){
+  k <- x%%3
+  j <- x%%5
+  if(k==0){
+    message("fizz")
+  }
+  else if(j==0){
+    message("buzz")
+  }
+  else if(j==0 & k==0){
+    massage("fizzbuzz")
+  }
+  else{
+    return(x)
+  }
+}
+```
 
 
 
