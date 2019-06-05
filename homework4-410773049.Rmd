@@ -259,9 +259,9 @@ valid_commit_count <- function(username,reponame,wday,startHour,endHour){
   
   df_validCommits$weekday<-wday(df_validCommits$commitDate)
   
-  ww <- df_validCommits$weekday=4 
-  HH <- df_validCommits$hh<=15 & df_validCommits$hh>=13
-  ww&HH -> df_validCommits$validCommit
+  df_validCommits$validCommit <- (df_validCommits$weekday == wday &
+                                   df_validCommits$hh >=startHour &
+                                   df_validCommits$hh <=endHour )
   
   df_validCommitsSubsample<-df_validCommits[df_validCommits$validCommit,]
   
