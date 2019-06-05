@@ -255,10 +255,7 @@ valid_commit_count <- function(username,reponame,wday,startHour,endHour){
   
   df_validCommits$hh<-hour(df_validCommits$commitDate)
   
-  y<-year(df_validCommits$commitDate)
-  m<-month(df_validCommits$commitDate)
-  d<-day(df_validCommits$commitDate)
-  df_validCommits$date<-str_c(y,"-",m,"-",d)
+  df_validCommits$date<-date(df_validCommits$commitDate)
   
   df_validCommits$weekday<-wday(df_validCommits$commitDate)
   
