@@ -263,9 +263,11 @@ valid_commit_count <- function(username,reponame,wday,startHour,endHour){
                                    df_validCommits$hh >=startHour &
                                    df_validCommits$hh <=endHour )
   
-  df_validCommitsSubsample<-df_validCommits[df_validCommits$validCommit,]
+  df_validCommitsSubsample<-df_validCommits[df_validCommits$validCommit,c("date","weekday","hh")] 
   
-  validCounts<-length(unique(df_validCommitsSubsample$date))
+  unique(df_validCommitsSubsample[,c("date")]) -> unique_df
+  
+  length(unique_df) -> validCounts
   
   return(validCounts)
 }
