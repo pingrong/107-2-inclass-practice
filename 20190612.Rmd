@@ -117,7 +117,7 @@ for(i in seq_along(commitHistory)){
 ```
 
 範例3
-任務一：存下來每個commit的author。
+#任務一：存下來每個commit的author。
 ```{r}
 load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
 ```
@@ -160,8 +160,45 @@ saveCommitAuthor
 ```
 
 
+#任務二：存下來每個commit的committer。
+0. saving container
+```{r}
+saveCommitcommitter<-
+  vector("character",length(commitHistory))
+```
 
+1. sequence source
+```{r}
+commitHistory
+```
 
+2. body
+存下來「第i個」commit的committer。
 
+```{r}
+i<- 1
+
+commitHistory[[i]]$commit$committer$name -> saveCommitcommitter[[i]]
+```
+
+檢查一下
+```{r}
+saveCommitcommitter
+```
+
+3. for loop
+
+```{r}
+saveCommitcommitter <-
+  vector("character",length(commitHistory)) # 0.
+
+for(i in seq_along(commitHistory)){
+  commitHistory[[i]]$commit$committer$name -> saveCommitcommitter[[i]]
+}
+saveCommitcommitter
+
+```
+
+#任務三：存下來每個author與committer同人的commitDate。
 
 
