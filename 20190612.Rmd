@@ -15,6 +15,9 @@ gmailAddress <- c(
 
 
 ```{r}
+i <- 1
+print(gmailAddress[[i]])
+
 for(i in seq_along(gmailAddress)){
   print(gmailAddress[[i]])
 }
@@ -49,8 +52,26 @@ gmailAddress
 ```
 
 
+```{r}
+load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
+```
 
+```{r}
+for(i in seq_along(commitHistory)){
+  print(
+    str_c(
+      "Author is ",
+      commitHistory[[i]][["commit"]][["author"]][["name"]],
+      ". Committer is ",
+      commitHistory[[i]][["commit"]][["committer"]][["name"]]
+      )
+    )
+}
+```
 
+```{r}
+
+```
 
 
 
