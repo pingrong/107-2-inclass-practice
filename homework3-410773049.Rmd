@@ -48,10 +48,8 @@ finStatement <- read_csv("http://mopsfin.twse.com.tw/opendata/t187ap06_O_ci.csv"
 ### 1.1 營業利益
 變數**營業利益（損失）**是公司本業的利益（若為正值）或損失（若為負值）。請找出有營業損失的公司名稱，存成character class的答案物件loss1Companies。
 ```{r ans11}
-loss<- finStatement$`營業利益（損失）`<0
-finStatement$公司名稱[[loss]] -> loss1Companies
-class(loss1Companies)
-as.character(loss1Companies)
+finStatement$`營業利益（損失）` < 0 -> logiLoss1
+finStatement$公司名稱[logiLoss1] -> loss1Companies
 loss1Companies# loss1Companies
 ```
 
