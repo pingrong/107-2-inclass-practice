@@ -26,7 +26,7 @@ for(i in seq_along(gmailAddress)){
 
 
 ```{r}
-# ¶}©l³]©w
+# ?}?l?]?w
 gmailAddress <- c(
   "tim@gmail.com",
   "anita",
@@ -34,7 +34,7 @@ gmailAddress <- c(
   "huang@gmail.com"
 )
 
-cat("°_©lª¬ªp\n")
+cat("?_?l???p\n")
 gmailAddress
 
 # for loop
@@ -47,7 +47,7 @@ for(i in seq_along(gmailAddress)){
   }
 }
 
-cat("­×¥¿«áª¬ªp\n")
+cat("?×¥??áª¬?p\n")
 gmailAddress
 ```
 
@@ -91,7 +91,7 @@ for(i in seq_along(commitHistory)){print(commitHistory[[i]]$commit$committer$dat
 
 
 
-¥ô°È0¡Gprint¡u¨C­Ó¡vcommitªºauthorµ¥©ócommitterªºÅÞ¿è§PÂ_µ²ªG¡C
+????0?Gprint?u?C?Ó¡vcommit??author????committer???Þ¿??P?_???G?C
 
 #sequence source
 ```{r}
@@ -99,7 +99,7 @@ commitHistory
 ```
 
 #body
-print¡u²Äi­Ó¡vcommitªºauthorµ¥©ócommitterªºÅÞ¿è§PÂ_µ²ªG¡C
+print?u??i?Ó¡vcommit??author????committer???Þ¿??P?_???G?C
 ```{r}
 i <- 1
 (commitHistory[[i]][["commit"]][["author"]][["name"]]==commitHistory[[i]][["commit"]][["committer"]][["name"]]) -> logiResult
@@ -116,8 +116,8 @@ for(i in seq_along(commitHistory)){
 }
 ```
 
-½d¨Ò3
-#¥ô°È¤@¡G¦s¤U¨Ó¨C­Ócommitªºauthor¡C
+?d??3
+#???È¤@?G?s?U?Ó¨C??commit??author?C
 ```{r}
 load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
 ```
@@ -134,7 +134,7 @@ commitHistory
 ```
 
 2. body
-¦s¤U¨Ó¡u²Äi­Ó¡vcommitªºauthor¡C
+?s?U?Ó¡u??i?Ó¡vcommit??author?C
 ```{r}
 i<- 1
 
@@ -142,7 +142,7 @@ commitHistory[[i]]$commit$author$name -> saveCommitAuthor[[i]]
 ```
 
 
-ÀË¬d¤@¤U
+?Ë¬d?@?U
 ```{r}
 saveCommitAuthor
 ```
@@ -160,7 +160,7 @@ saveCommitAuthor
 ```
 
 
-#¥ô°È¤G¡G¦s¤U¨Ó¨C­Ócommitªºcommitter¡C
+#???È¤G?G?s?U?Ó¨C??commit??committer?C
 0. saving container
 ```{r}
 saveCommitcommitter<-
@@ -173,7 +173,7 @@ commitHistory
 ```
 
 2. body
-¦s¤U¨Ó¡u²Äi­Ó¡vcommitªºcommitter¡C
+?s?U?Ó¡u??i?Ó¡vcommit??committer?C
 
 ```{r}
 i<- 1
@@ -181,7 +181,7 @@ i<- 1
 commitHistory[[i]]$commit$committer$name -> saveCommitcommitter[[i]]
 ```
 
-ÀË¬d¤@¤U
+?Ë¬d?@?U
 ```{r}
 saveCommitcommitter
 ```
@@ -199,7 +199,7 @@ saveCommitcommitter
 
 ```
 
-#¥ô°È¤T¡G¦s¤U¨Ó¨C­Óauthor»Pcommitter¦P¤HªºcommitDate¡C
+#???È¤T?G?s?U?Ó¨C??author?Pcommitter?P?H??commitDate?C
 0. saving container
 ```{r}
 savecommitDate <-
@@ -212,7 +212,7 @@ commitHistory
 ```
 
 2. body
-¦s¤U¨Ó¡u²Äi­Ó¡vcommitªºcommitter¡C
+?s?U?Ó¡u??i?Ó¡vcommit??committer?C
 
 ```{r}
 i<- 1
@@ -220,17 +220,17 @@ commitHistory[[i]]$commit$committer$name == saveCommitcommitter[[i]]
 commitHistory[[i]]$commit$committer$date[commitHistory[[i]]$commit$committer$name == saveCommitcommitter[[i]]]->
 ```
 
-ÀË¬d¤@¤U
+?Ë¬d?@?U
 ```{r}
 savecommitDate
 ```
 
 #3 answer
-¥ô°È¤T¡G¦s¤U¨Ó¨C­Óauthor»Pcommitter¦P¤HªºcommitDate¡C
+???È¤T?G?s?U?Ó¨C??author?Pcommitter?P?H??commitDate?C
 
-¹L´ç¥ô°È¡G
-¦s¤U¨Ó¨C­Ócommitªºauthor, committer, commitDate.
-¦s¤U¨Ó¨C­Ócommitªºauthor==commiterªºµ²ªG
+?L?????È¡G
+?s?U?Ó¨C??commit??author, committer, commitDate.
+?s?U?Ó¨C??commit??author==commiter?????G
 
 0. saving container
 saveEveryThing <- vector("list",length(commitHistory))
@@ -250,7 +250,7 @@ list(
   committer=committer_i,
   commitDate=commitDate_i
 ) -> saveEveryThing[[i]]
-ÀË¬d¤@¤U
+?Ë¬d?@?U
 
 saveEveryThing
 saveSameLogi
@@ -276,7 +276,7 @@ saveEveryThing[saveSameLogi] -> saveValidCommitDate
 saveValidCommitDate
 
 
-##¡@ÅÞ¿è
+##?@?Þ¿?
 ```{r}
 isSame <-  vector("logical",length(commitHistory))
 for (i in seq_along(commitHistory)){
