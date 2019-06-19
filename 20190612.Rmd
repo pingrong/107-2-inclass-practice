@@ -1,0 +1,307 @@
+---
+title: '20190612'
+output: ''
+---
+
+```{r}
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+```
+
+
+
+```{r}
+i <- 1
+print(gmailAddress[[i]])
+
+for(i in seq_along(gmailAddress)){
+  print(gmailAddress[[i]])
+}
+```
+
+
+
+```{r}
+# 開始設定
+gmailAddress <- c(
+  "tim@gmail.com",
+  "anita",
+  "yellen@gmail.com",
+  "huang@gmail.com"
+)
+
+cat("起始狀況\n")
+gmailAddress
+
+# for loop
+library(stringr)
+for(i in seq_along(gmailAddress)){
+  if(!str_detect(gmailAddress[[i]],"@gmail.com")){
+    correctGmailAddress <-
+      str_c(gmailAddress[[i]],"@gmail.com")
+    gmailAddress[[i]] <- correctGmailAddress
+  }
+}
+
+cat("修正後狀況\n")
+gmailAddress
+```
+
+
+```{r}
+load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
+```
+
+```{r}
+for(i in seq_along(commitHistory)){
+  print(
+    str_c(
+      "Author is ",
+      commitHistory[[i]][["commit"]][["author"]][["name"]],
+      ". Committer is ",
+      commitHistory[[i]][["commit"]][["committer"]][["name"]]
+      )
+    )
+}
+```
+
+```{r}
+for(i in seq_along(commitHistory)){
+  print(commitHistory[[i]]$commit$author$name)
+}
+for(i in seq_along(commitHistory)){
+  print(commitHistory[[i]]$commit$committer$name)
+}
+```
+
+
+```{r}
+i<-1
+
+for(i in seq_along(commitHistory)){print(commitHistory[[i]]$commit$author$name)}
+
+for(i in seq_along(commitHistory)){print(commitHistory[[i]]$commit$committer$name)}
+
+for(i in seq_along(commitHistory)){print(commitHistory[[i]]$commit$committer$date)}
+```
+
+
+
+任務0：print「每個」commit的author等於committer的邏輯判斷結果。
+
+#sequence source
+```{r}
+commitHistory
+```
+
+#body
+print「第i個」commit的author等於committer的邏輯判斷結果。
+```{r}
+i <- 1
+(commitHistory[[i]][["commit"]][["author"]][["name"]]==commitHistory[[i]][["commit"]][["committer"]][["name"]]) -> logiResult
+print(logiResult)
+```
+
+#for loop
+```{r}
+for(i in seq_along(commitHistory)){
+  (commitHistory[[i]][["commit"]][["author"]][["name"]]==
+     commitHistory[[i]][["commit"]][["committer"]][["name"]]) ->
+    logiResult
+  print(logiResult)  
+}
+```
+
+範例3
+#任務一：存下來每個commit的author。
+```{r}
+load(url("https://www.dropbox.com/s/qnz9paigf61yjus/commitHistory.Rda?raw=1"))
+```
+
+0. saving container
+```{r}
+saveCommitAuthor <-
+  vector("character",length(commitHistory))
+```
+
+1. sequence source
+```{r}
+commitHistory
+```
+
+2. body
+存下來「第i個」commit的author。
+```{r}
+i<- 1
+
+commitHistory[[i]]$commit$author$name -> saveCommitAuthor[[i]]
+```
+
+
+檢查一下
+```{r}
+saveCommitAuthor
+```
+
+3. for loop
+```{r}
+saveCommitAuthor <-
+  vector("character",length(commitHistory)) # 0.
+for(i in seq_along(commitHistory)){
+  commitHistory[[i]]$commit$author$name -> saveCommitAuthor[[i]]
+}
+
+saveCommitAuthor
+
+```
+
+
+#任務二：存下來每個commit的committer。
+0. saving container
+```{r}
+saveCommitcommitter<-
+  vector("character",length(commitHistory))
+```
+
+1. sequence source
+```{r}
+commitHistory
+```
+
+2. body
+存下來「第i個」commit的committer。
+
+```{r}
+i<- 1
+
+commitHistory[[i]]$commit$committer$name -> saveCommitcommitter[[i]]
+```
+
+檢查一下
+```{r}
+saveCommitcommitter
+```
+
+3. for loop
+
+```{r}
+saveCommitcommitter <-
+  vector("character",length(commitHistory)) # 0.
+
+for(i in seq_along(commitHistory)){
+  commitHistory[[i]]$commit$committer$name -> saveCommitcommitter[[i]]
+}
+saveCommitcommitter
+
+```
+
+#任務三：存下來每個author與committer同人的commitDate。
+0. saving container
+```{r}
+savecommitDate <-
+  vector("character",length(commitHistory))
+```
+
+1. sequence source
+```{r}
+commitHistory
+```
+
+2. body
+存下來「第i個」commit的committer。
+
+```{r}
+i<- 1
+commitHistory[[i]]$commit$committer$name == saveCommitcommitter[[i]]
+commitHistory[[i]]$commit$committer$date[commitHistory[[i]]$commit$committer$name == saveCommitcommitter[[i]]]->
+```
+
+檢查一下
+```{r}
+savecommitDate
+```
+
+#3 answer
+任務三：存下來每個author與committer同人的commitDate。
+
+過渡任務：
+存下來每個commit的author, committer, commitDate.
+存下來每個commit的author==commiter的結果
+
+0. saving container
+saveEveryThing <- vector("list",length(commitHistory))
+saveSameLogi <- vector("logical",length(commitHistory))
+1. sequence source
+commitHistory
+2. body
+i <- 1
+
+author_i <- commitHistory[[i]]$commit$author$name
+committer_i <- commitHistory[[i]]$commit$committer$name
+commitDate_i <- commitHistory[[i]]$commit$committer$date
+
+(author_i==committer_i) -> saveSameLogi[[i]]
+list(
+  author=author_i,
+  committer=committer_i,
+  commitDate=commitDate_i
+) -> saveEveryThing[[i]]
+檢查一下
+
+saveEveryThing
+saveSameLogi
+3. for loop
+saveEveryThing <- vector("list",length(commitHistory))
+saveSameLogi <- vector("logical",length(commitHistory))
+for(i in seq_along(commitHistory)){
+  author_i <- commitHistory[[i]]$commit$author$name
+  committer_i <- commitHistory[[i]]$commit$committer$name
+  commitDate_i <- commitHistory[[i]]$commit$committer$date
+
+  (author_i == committer_i) -> saveSameLogi[[i]]
+
+  list(
+    author=author_i,
+    committer=committer_i,
+    commitDate=commitDate_i
+  ) -> saveEveryThing[[i]]  
+}
+saveEveryThing
+print(saveSameLogi)
+saveEveryThing[saveSameLogi] -> saveValidCommitDate
+saveValidCommitDate
+
+
+##　邏輯
+```{r}
+isSame <-  vector("logical",length(commitHistory))
+for (i in seq_along(commitHistory)){
+  isSame[[i]] <- commitHistory[[i]][["commit"]][["author"]][["name"]] == commitHistory[[i]][["commit"]][["committer"]][["name"]]
+  b <- commitHistory[isSame]
+}
+commitdate <- vector("character",length(b))
+for (i in seq_along(b)){
+  commitdate[[i]] <- b[[i]][["commit"]][["author"]][["date"]]
+
+}
+```
+
+
+```{r}
+logiresult <- vector("logical",length(commitHistory))
+for (i in seq_along(commitHistory)) {
+  logiresult[[i]] <- (commitHistory[[i]]$commit$author$name
+        ==commitHistory[[i]]$commit$committer$name)
+}
+commitDATE <- vector("character",length(commitHistory))
+for (i in seq_along(commitHistory)) {
+  commitHistory[[i]]$commit$committer$date -> commitDATE[[i]]
+}
+commitDATE[logiresult] -> commitDatee
+commitDatee
+```
+
